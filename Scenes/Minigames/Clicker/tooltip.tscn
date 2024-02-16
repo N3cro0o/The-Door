@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://7ja0yc77bve5"]
+
+[ext_resource type="Script" path="res://Scenes/Minigames/Clicker/tooltip.gd" id="1_fvf4s"]
+[ext_resource type="Theme" uid="uid://dy8q6p6ivswr0" path="res://Scenes/Minigames/Clicker/clicker.tres" id="2_gdip7"]
+
+[node name="Tooltip" type="Window"]
+title = "Text_box_module"
+size = Vector2i(350, 150)
+unresizable = true
+always_on_top = true
+unfocusable = true
+mouse_passthrough = true
+min_size = Vector2i(250, 100)
+script = ExtResource("1_fvf4s")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Control/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.168627, 0.168627, 0.168627, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="FlowContainer" type="FlowContainer" parent="Control/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Text" type="Label" parent="Control/MarginContainer/MarginContainer/FlowContainer"]
+custom_minimum_size = Vector2(330, 100)
+layout_mode = 2
+theme = ExtResource("2_gdip7")
+text = "Rzygom Rzygom Rzygom Rzygom"
+autowrap_mode = 3

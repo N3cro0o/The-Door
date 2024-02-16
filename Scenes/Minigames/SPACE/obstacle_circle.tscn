@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc6vb1fanhfxe"]
+
+[ext_resource type="Texture2D" uid="uid://c7ubaipk6drws" path="res://Sprites/Space/Meteor.png" id="1_ekpr2"]
+[ext_resource type="Script" path="res://Scenes/Minigames/SPACE/obstacle.gd" id="2_dusks"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f78k3"]
+radius = 72.2496
+
+[node name="ObstacleCircle" type="StaticBody2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("2_dusks")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.189, 0.189)
+texture = ExtResource("1_ekpr2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_f78k3")

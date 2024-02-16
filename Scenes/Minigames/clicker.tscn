@@ -1,0 +1,139 @@
+[gd_scene load_steps=12 format=3 uid="uid://0u62fwnh04oi"]
+
+[ext_resource type="Script" path="res://Scenes/Minigames/clicker.gd" id="1_jcguh"]
+[ext_resource type="PackedScene" uid="uid://iudxyqdikmfq" path="res://Scenes/Minigames/Clicker/upgrades.tscn" id="1_lemgg"]
+[ext_resource type="Script" path="res://Scenes/Minigames/Clicker/button_data.gd" id="2_grgn1"]
+[ext_resource type="Theme" uid="uid://dy8q6p6ivswr0" path="res://Scenes/Minigames/Clicker/clicker.tres" id="3_th62e"]
+[ext_resource type="PackedScene" uid="uid://dk05cyr5w4pgx" path="res://Scenes/Minigames/Clicker/button.tscn" id="4_v7apl"]
+
+[sub_resource type="Resource" id="Resource_bdqr2"]
+script = ExtResource("2_grgn1")
+index = 0
+name = "picklock"
+description = "Used to break the lock"
+cost = 100000
+lock = true
+dps = 0
+dpc = 0
+
+[sub_resource type="Resource" id="Resource_onnwk"]
+script = ExtResource("2_grgn1")
+index = 1
+name = "scalar"
+description = "Simple and basic. One thing at a time"
+cost = 5
+lock = false
+dps = 5
+dpc = 4
+
+[sub_resource type="Resource" id="Resource_6ty4o"]
+script = ExtResource("2_grgn1")
+index = 2
+name = "vector"
+description = "Just two points connected together can describe anything"
+cost = 500
+lock = false
+dps = 15
+dpc = 10
+
+[sub_resource type="Resource" id="Resource_cxipj"]
+script = ExtResource("2_grgn1")
+index = 3
+name = "matrix"
+description = "When vectors are not enough. But now you can see"
+cost = 2137
+lock = false
+dps = 30
+dpc = 10
+
+[sub_resource type="Resource" id="Resource_pebw3"]
+script = ExtResource("2_grgn1")
+index = 4
+name = "complex_data"
+description = "If not the human imagination (and few duels) we wouldn't hear anything"
+cost = 10000
+lock = false
+dps = 80
+dpc = 55
+
+[sub_resource type="Resource" id="Resource_ovjxq"]
+script = ExtResource("2_grgn1")
+index = 5
+name = "system_overload"
+description = "The biggest increase in computing power. But watch out for any dead pixels"
+cost = 30000
+lock = false
+dps = 250
+dpc = 200
+
+[node name="ClickerDaGame" type="Node2D"]
+script = ExtResource("1_jcguh")
+button_data = Array[ExtResource("2_grgn1")]([SubResource("Resource_bdqr2"), SubResource("Resource_onnwk"), SubResource("Resource_6ty4o"), SubResource("Resource_cxipj"), SubResource("Resource_pebw3"), SubResource("Resource_ovjxq")])
+
+[node name="Score" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Score"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -924.0
+offset_top = -515.0
+offset_right = 923.0
+offset_bottom = 518.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.168627, 0.168627, 0.168627, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Score"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -11.5
+offset_right = 55.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Score/MarginContainer"]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 2
+theme = ExtResource("3_th62e")
+theme_override_font_sizes/font_size = 16
+text = "123213123123"
+autowrap_mode = 3
+
+[node name="Upgrades" type="Window" parent="."]
+title = "Develop_module"
+initial_position = 1
+size = Vector2i(500, 500)
+visible = false
+unresizable = true
+
+[node name="UpgradeControl" parent="Upgrades" instance=ExtResource("1_lemgg")]
+theme_button = ExtResource("3_th62e")
+
+[node name="Cookie" type="Window" parent="."]
+title = "Input_module"
+initial_position = 1
+size = Vector2i(250, 250)
+visible = false
+unresizable = true
+
+[node name="ButtonControl" parent="Cookie" instance=ExtResource("4_v7apl")]
+
+[connection signal="close_requested" from="Cookie" to="." method="_on_task_close_requested"]
+[connection signal="current_cost" from="Cookie/ButtonControl" to="." method="update_cost_string"]
+[connection signal="task_done" from="Cookie/ButtonControl" to="." method="end_clicker_part"]

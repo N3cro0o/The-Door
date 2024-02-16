@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8ndg556mf17"]
+
+[ext_resource type="Script" path="res://Scenes/Masters/gm.gd" id="1_5yojn"]
+[ext_resource type="PackedScene" uid="uid://babt23gkc0yru" path="res://Scenes/Door/door_main.tscn" id="1_rowav"]
+[ext_resource type="PackedScene" uid="uid://dbb4ualvtff2q" path="res://Scenes/Lock/lock_1.tscn" id="2_8mo8n"]
+[ext_resource type="PackedScene" uid="uid://b6idqkaxi3haq" path="res://Scenes/Minigames/picking_lock.tscn" id="3_6r71s"]
+[ext_resource type="PackedScene" uid="uid://8ea04wqbgv5l" path="res://Scenes/Minigames/papa_gmae.tscn" id="4_k1yop"]
+[ext_resource type="PackedScene" uid="uid://ylmm0b41yw1" path="res://Scenes/Minigames/space!!!!.tscn" id="6_0nt2r"]
+[ext_resource type="PackedScene" uid="uid://0u62fwnh04oi" path="res://Scenes/Minigames/clicker.tscn" id="7_wlfuj"]
+
+[node name="GM" type="Node2D" node_paths=PackedStringArray("locks")]
+script = ExtResource("1_5yojn")
+locks = [NodePath("Windows/Lock1"), NodePath("Windows/Lock2"), NodePath("Windows/Lock3")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="DoorMain" parent="Camera2D" instance=ExtResource("1_rowav")]
+
+[node name="Lockpick" parent="Camera2D" instance=ExtResource("3_6r71s")]
+visible = false
+speed = 200.0
+
+[node name="Windows" type="Node" parent="."]
+
+[node name="Lock1" parent="Windows" instance=ExtResource("2_8mo8n")]
+size = Vector2i(240, 300)
+visible = false
+scene = ExtResource("4_k1yop")
+
+[node name="Lock2" parent="Windows" instance=ExtResource("2_8mo8n")]
+title = "Lock_2"
+size = Vector2i(250, 250)
+visible = false
+scene = ExtResource("6_0nt2r")
+
+[node name="Lock3" parent="Windows" instance=ExtResource("2_8mo8n")]
+title = "Lock_3"
+visible = false
+scene = ExtResource("7_wlfuj")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Label" type="Label" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="activate_lock" from="Camera2D/DoorMain" to="." method="window_shower"]
+[connection signal="all_done" from="Camera2D/DoorMain" to="." method="finish_time"]
+[connection signal="on_unlock" from="Camera2D/Lockpick" to="Camera2D/DoorMain" method="phase2"]
+[connection signal="focus_entered" from="Windows/Lock1" to="." method="_on_lock_1_focus_entered"]
+[connection signal="on_unlock" from="Windows/Lock1" to="." method="window_unlock" binds= [1]]
+[connection signal="focus_entered" from="Windows/Lock2" to="." method="_on_lock_2_focus_entered"]
+[connection signal="on_unlock" from="Windows/Lock2" to="." method="window_unlock" binds= [2]]
+[connection signal="focus_entered" from="Windows/Lock3" to="." method="_on_lock_3_focus_entered"]
+[connection signal="on_unlock" from="Windows/Lock3" to="." method="window_unlock" binds= [3]]

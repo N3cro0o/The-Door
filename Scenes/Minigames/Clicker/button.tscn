@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk05cyr5w4pgx"]
+
+[ext_resource type="Script" path="res://Scenes/Minigames/Clicker/button.gd" id="1_h1uja"]
+[ext_resource type="Theme" uid="uid://dy8q6p6ivswr0" path="res://Scenes/Minigames/Clicker/clicker.tres" id="2_yh3de"]
+
+[node name="ButtonControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h1uja")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.168627, 0.168627, 0.168627, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -297.0
+offset_right = 297.0
+offset_bottom = 297.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_yh3de")
+theme_override_colors/font_pressed_color = Color(0, 0.996078, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.996078, 0, 1)
+button_mask = 3
+flat = true
+text_overrun_behavior = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_yh3de")
+text = "This application stores user INPUTS
+Click to begin"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

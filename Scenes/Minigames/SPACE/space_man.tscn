@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5f3drwe4lmcl"]
+
+[ext_resource type="Script" path="res://Scenes/Minigames/SPACE/space_man.gd" id="1_pvexo"]
+[ext_resource type="Texture2D" uid="uid://p4ynyeweo6rc" path="res://Sprites/Space/interkosmos.png" id="2_urfx7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_72rup"]
+radius = 23.0217
+
+[node name="SpaceMan" type="CharacterBody2D"]
+script = ExtResource("1_pvexo")
+circle_color = Color(0.0980392, 1, 1, 0.196078)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0611111, 0.0611111)
+texture = ExtResource("2_urfx7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_72rup")

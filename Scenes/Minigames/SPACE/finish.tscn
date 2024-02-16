@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://8nvkoehn67fb"]
+
+[ext_resource type="Texture2D" uid="uid://clx2srrntwx6o" path="res://Sprites/Space/Tablet.png" id="1_5v8lx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bob42"]
+size = Vector2(100, 100)
+
+[node name="Finish" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0777778, 0.0777778)
+texture = ExtResource("1_5v8lx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bob42")

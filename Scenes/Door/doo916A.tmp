@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://babt23gkc0yru"]
+
+[ext_resource type="Script" path="res://Scenes/Door/door_main.gd" id="1_8jcdo"]
+[ext_resource type="PackedScene" uid="uid://dbb4ualvtff2q" path="res://Scenes/Locks/lock_1.tscn" id="1_lvjc2"]
+[ext_resource type="PackedScene" uid="uid://c3fi5c0ne3km3" path="res://Scenes/Locks/lock_2.tscn" id="2_o31jp"]
+[ext_resource type="PackedScene" uid="uid://frskgfjqtvpx" path="res://Scenes/Locks/lock_3.tscn" id="3_u0ph8"]
+
+[node name="DoorMain" type="Node2D"]
+script = ExtResource("1_8jcdo")
+
+[node name="Lock1" parent="." instance=ExtResource("1_lvjc2")]
+initial_position = 1
+visible = false
+
+[node name="Lock2" parent="." instance=ExtResource("2_o31jp")]
+initial_position = 1
+visible = false
+
+[node name="Lock3" parent="." instance=ExtResource("3_u0ph8")]
+initial_position = 1
+visible = false

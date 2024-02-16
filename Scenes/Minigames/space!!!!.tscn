@@ -1,0 +1,158 @@
+[gd_scene load_steps=7 format=3 uid="uid://ylmm0b41yw1"]
+
+[ext_resource type="Script" path="res://Scenes/Minigames/space!!!!.gd" id="1_alxn0"]
+[ext_resource type="PackedScene" uid="uid://b5f3drwe4lmcl" path="res://Scenes/Minigames/SPACE/space_man.tscn" id="2_7stmf"]
+[ext_resource type="PackedScene" uid="uid://ctuuxnqbakxhf" path="res://Scenes/Minigames/SPACE/obstacle.tscn" id="3_q5vtu"]
+[ext_resource type="Texture2D" uid="uid://xxhw4y2033ev" path="res://Sprites/Space/Space.png" id="4_3jeyw"]
+[ext_resource type="PackedScene" uid="uid://8nvkoehn67fb" path="res://Scenes/Minigames/SPACE/finish.tscn" id="4_msodi"]
+[ext_resource type="PackedScene" uid="uid://bc6vb1fanhfxe" path="res://Scenes/Minigames/SPACE/obstacle_circle.tscn" id="6_wgu4y"]
+
+[node name="SPACE!!!!" type="Node2D"]
+position = Vector2(0, 1)
+script = ExtResource("1_alxn0")
+color_finish = Color(0.211765, 0.423529, 0.8, 0.109804)
+
+[node name="SpaceMan" parent="." instance=ExtResource("2_7stmf")]
+position = Vector2(27, 34)
+circle_color = Color(0.0980392, 1, 1, 0.0980392)
+
+[node name="Camera2D" type="Camera2D" parent="SpaceMan"]
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="Walls" type="Node" parent="Obstacles"]
+
+[node name="Obstacle15" parent="Obstacles/Walls" instance=ExtResource("3_q5vtu")]
+position = Vector2(720, -183)
+scale = Vector2(18.5402, 2.46016)
+transparent = true
+
+[node name="Obstacle14" parent="Obstacles/Walls" instance=ExtResource("3_q5vtu")]
+position = Vector2(-173, 343)
+scale = Vector2(2.22016, 10.3802)
+transparent = true
+
+[node name="Obstacle16" parent="Obstacles/Walls" instance=ExtResource("3_q5vtu")]
+position = Vector2(1446, 351)
+scale = Vector2(2.14016, 10.3802)
+transparent = true
+
+[node name="Obstacle13" parent="Obstacles/Walls" instance=ExtResource("3_q5vtu")]
+position = Vector2(663, 936)
+scale = Vector2(18.6781, 2.96582)
+transparent = true
+
+[node name="Obstacle" parent="Obstacles" instance=ExtResource("3_q5vtu")]
+position = Vector2(325, 546)
+rotation = 0.480574
+
+[node name="Obstacle2" parent="Obstacles" instance=ExtResource("3_q5vtu")]
+position = Vector2(183, 505)
+rotation = -0.109606
+
+[node name="Obstacle10" parent="Obstacles" instance=ExtResource("3_q5vtu")]
+position = Vector2(640, 467)
+rotation = -4.51211
+scale = Vector2(0.5, -0.5)
+
+[node name="Obstacle3" parent="Obstacles" instance=ExtResource("3_q5vtu")]
+position = Vector2(332, 293)
+rotation = 0.297837
+
+[node name="Obstacle4" parent="Obstacles" instance=ExtResource("3_q5vtu")]
+position = Vector2(486, 187)
+
+[node name="Obstacle8" parent="Obstacles" instance=ExtResource("3_q5vtu")]
+position = Vector2(589, 381)
+
+[node name="Obstacle9" parent="Obstacles" instance=ExtResource("3_q5vtu")]
+position = Vector2(654, 381)
+scale = Vector2(-0.5, 0.5)
+
+[node name="Obstacle5" parent="Obstacles" instance=ExtResource("3_q5vtu")]
+position = Vector2(1025, 550)
+rotation = 0.287369
+
+[node name="Obstacle6" parent="Obstacles" instance=ExtResource("3_q5vtu")]
+position = Vector2(1082, 520)
+rotation = -0.642289
+
+[node name="Obstacle7" parent="Obstacles" instance=ExtResource("3_q5vtu")]
+position = Vector2(833, 217)
+rotation = 0.216689
+
+[node name="ObstacleCircle" parent="Obstacles" instance=ExtResource("6_wgu4y")]
+position = Vector2(776, 253)
+
+[node name="ObstacleCircle3" parent="Obstacles" instance=ExtResource("6_wgu4y")]
+position = Vector2(108, 109)
+
+[node name="ObstacleCircle4" parent="Obstacles" instance=ExtResource("6_wgu4y")]
+position = Vector2(1130, 533)
+
+[node name="ObstacleCircle5" parent="Obstacles" instance=ExtResource("6_wgu4y")]
+position = Vector2(1068, 595)
+
+[node name="ObstacleCircle6" parent="Obstacles" instance=ExtResource("6_wgu4y")]
+position = Vector2(805, 626)
+
+[node name="ObstacleCircle2" parent="Obstacles" instance=ExtResource("6_wgu4y")]
+position = Vector2(339, 470)
+rotation = 0.76833
+
+[node name="Finish" parent="." instance=ExtResource("4_msodi")]
+position = Vector2(260, 528)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 756.0
+offset_top = 278.0
+offset_right = 870.0
+offset_bottom = 327.0
+rotation = -0.622576
+theme_override_colors/font_color = Color(0.380392, 0.976471, 1, 0.243137)
+text = "02-04-05"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+visible = false
+offset_left = 144.0
+offset_top = 575.0
+offset_right = 258.0
+offset_bottom = 624.0
+rotation = -0.622576
+theme_override_colors/font_color = Color(0.380392, 0.976471, 1, 0.243137)
+text = "dd-mm-yy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 1078.0
+offset_top = 522.0
+offset_right = 1192.0
+offset_bottom = 571.0
+rotation = 0.580112
+theme_override_colors/font_color = Color(0.380392, 0.976471, 1, 0.243137)
+text = "JPII"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 605.0
+offset_top = 402.0
+offset_right = 719.0
+offset_bottom = 451.0
+rotation = -0.127388
+theme_override_colors/font_color = Color(0.380392, 0.976471, 1, 0.243137)
+text = "_ _:_ _"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(663, 351)
+texture = ExtResource("4_3jeyw")
+
+[connection signal="on_move" from="SpaceMan" to="." method="on_mc_move"]
+[connection signal="body_entered" from="Finish" to="." method="_on_finish_body_entered"]
+[connection signal="body_exited" from="Finish" to="." method="_on_finish_body_exited"]

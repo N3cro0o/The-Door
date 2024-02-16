@@ -1,0 +1,57 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://rgti8qus1ahc"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_dj22b"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ohbnm"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ppos8"]
+
+[sub_resource type="Image" id="Image_l5jcp"]
+data = {
+"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
+"format": "RGBA8",
+"height": 4,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_n1pgc"]
+image = SubResource("Image_l5jcp")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uknf1"]
+bg_color = Color(0.745098, 0.745098, 0.745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8jqg"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0u0c"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101961, 0.101961, 0.101961, 0.996078)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[resource]
+VSlider/constants/center_grabber = 8
+VSlider/constants/grabber_offset = 11
+VSlider/icons/grabber = SubResource("ImageTexture_dj22b")
+VSlider/icons/grabber_disabled = SubResource("ImageTexture_ohbnm")
+VSlider/icons/grabber_highlight = SubResource("ImageTexture_ppos8")
+VSlider/icons/tick = SubResource("ImageTexture_n1pgc")
+VSlider/styles/grabber_area = SubResource("StyleBoxFlat_uknf1")
+VSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_w8jqg")
+VSlider/styles/slider = SubResource("StyleBoxFlat_b0u0c")

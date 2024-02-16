@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbb4ualvtff2q"]
+
+[ext_resource type="Script" path="res://Scenes/Lock/lock_logic.gd" id="1_3d2p3"]
+
+[node name="Lock1" type="Window"]
+title = "Lock_1"
+position = Vector2i(275, 156)
+size = Vector2i(640, 320)
+transient = true
+unresizable = true
+content_scale_mode = 1
+content_scale_aspect = 1
+script = ExtResource("1_3d2p3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="about_to_popup" from="." to="." method="_about_to_popup"]
+[connection signal="close_requested" from="." to="." method="on_close"]
