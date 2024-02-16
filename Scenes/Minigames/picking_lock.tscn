@@ -62,7 +62,7 @@ theme_override_constants/margin_bottom = 5
 [node name="ColorRect" type="ColorRect" parent="Area2D/ColorRect2/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
-color = Color(0.152941, 0.152941, 0.152941, 0.898039)
+color = Color(0.156863, 0.152941, 0.141176, 0.898039)
 
 [node name="Button" type="Area2D" parent="."]
 position = Vector2(-64, 0)
