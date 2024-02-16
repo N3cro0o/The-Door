@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6idqkaxi3haq"]
+[gd_scene load_steps=7 format=3 uid="uid://b6idqkaxi3haq"]
 
 [ext_resource type="Script" path="res://Scenes/Minigames/picking_lock.gd" id="1_2mrbb"]
+[ext_resource type="Texture2D" uid="uid://4to6de2owcss" path="res://slider_gradient.tres" id="2_icjmr"]
 [ext_resource type="Texture2D" uid="uid://bfk7b8bns3tbv" path="res://Sprites/key.png" id="2_op5xe"]
 [ext_resource type="Theme" uid="uid://rgti8qus1ahc" path="res://base_theme1.tres" id="3_1r2j0"]
 
@@ -12,6 +13,7 @@ radius = 30.0
 
 [node name="Lockpick" type="Node2D"]
 script = ExtResource("1_2mrbb")
+slider_gradient = ExtResource("2_icjmr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8

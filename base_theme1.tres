@@ -6,7 +6,7 @@
 
 [sub_resource type="ImageTexture" id="ImageTexture_ppos8"]
 
-[sub_resource type="Image" id="Image_us15t"]
+[sub_resource type="Image" id="Image_nruih"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -16,10 +16,10 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_n1pgc"]
-image = SubResource("Image_us15t")
+image = SubResource("Image_nruih")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uknf1"]
-bg_color = Color(0.745098, 0.745098, 0.745098, 1)
+bg_color = Color(0.156863, 0.152941, 0.141176, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8jqg"]
 content_margin_left = 4.0
@@ -38,12 +38,14 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.101961, 0.101961, 0.101961, 0.996078)
+bg_color = Color(0.337255, 0.278431, 0.113725, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 corner_detail = 6
+expand_margin_left = 1.0
+expand_margin_right = 1.0
 
 [resource]
 VSlider/constants/center_grabber = 8

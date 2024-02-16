@@ -2,6 +2,7 @@ extends Node2D
 
 # Exported variables
 @export var speed := 50.0
+@export var slider_gradient := GradientTexture1D
 # Variables
 @onready var button = $Button
 @onready var key := $Button/Main
@@ -49,7 +50,6 @@ func _process(delta):
 		else:
 			time_stored -= delta / 2
 	slider.value = time_stored
-	
 	# Checks
 	if(time_stored > 3 and !check1):
 		check1 = true
@@ -64,7 +64,7 @@ func _process(delta):
 		var x = randi_range(0,860)
 		var y = randi_range(0,560)
 		button.position = Vector2(x - 64 - 430, y - 280)
-		speed *= 1.5
+		speed *= 1.3
 		dir.x *= -1
 		dir.y *= -1
 		check3 = true

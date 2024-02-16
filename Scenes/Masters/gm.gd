@@ -48,10 +48,10 @@ func finish_time():
 	t_text.text = "%s:%s:%s" % [h,m,s]
 
 func _on_lock_1_focus_entered():
-	door.write_on_blackboard("Cipa")
+	door.write_on_blackboard("Find the code to open this lock.\nHints can be found anywhere\n\n\n... or you can just brute force it. There's only 10000 possible passwords!")
 
 func _on_lock_2_focus_entered():
-	door.write_on_blackboard("Cyce")
+	door.write_on_blackboard("Stranded in space, you have to unlock the tablet to open the lock.\n\nBut after the ship crashed you can't find a way to open it here")
 
 func _on_lock_3_focus_entered():
-	door.write_on_blackboard("WADOWICE")
+	door.write_on_blackboard("One of the deepest parts of the security system and it's a clicker. \n\n You know what to do, don't you?")

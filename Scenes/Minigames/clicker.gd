@@ -68,7 +68,10 @@ func end_clicker_part():
 	upgr_window.show()
 	button.set_process(false)
 	await get_tree().process_frame
-	score.text = info_text % [dps, dpc, "Please choose the next task", completed_tasks]
+	if(button_data[active_task_id].jp2):
+		score.text ="No 264. Changed the world\n\n" + info_text % [dps, dpc, "Please choose the next task", completed_tasks]
+	else:
+		score.text = info_text % [dps, dpc, "Please choose the next task", completed_tasks]
 
 func exit():
 	button.set_process(false)

@@ -13,6 +13,7 @@ name = "picklock"
 description = "Used to break the lock"
 cost = 100000
 lock = true
+jp2 = false
 dps = 0
 dpc = 0
 
@@ -23,6 +24,7 @@ name = "scalar"
 description = "Simple and basic. One thing at a time"
 cost = 5
 lock = false
+jp2 = false
 dps = 5
 dpc = 4
 
@@ -33,6 +35,7 @@ name = "vector"
 description = "Just two points connected together can describe anything"
 cost = 500
 lock = false
+jp2 = false
 dps = 15
 dpc = 10
 
@@ -43,6 +46,7 @@ name = "matrix"
 description = "When vectors are not enough. But now you can see"
 cost = 2137
 lock = false
+jp2 = false
 dps = 30
 dpc = 10
 
@@ -53,6 +57,7 @@ name = "complex_data"
 description = "If not the human imagination (and few duels) we wouldn't hear anything"
 cost = 10000
 lock = false
+jp2 = false
 dps = 80
 dpc = 55
 
@@ -63,6 +68,7 @@ name = "system_overload"
 description = "The biggest increase in computing power. But watch out for any dead pixels"
 cost = 30000
 lock = false
+jp2 = true
 dps = 250
 dpc = 200
 
