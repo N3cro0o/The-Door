@@ -4,6 +4,10 @@ extends Node2D
 @export var speed := 50.0
 # Variables
 @onready var button = $Button
+@onready var key := $Button/Main
+@onready var shadow1 := $Shadow1
+@onready var shadow2 := $Shadow2
+@onready var shadow3 := $Shadow3
 @onready var box = $Area2D
 @onready var slider = $VSlider
 var check1 := false
@@ -32,9 +36,11 @@ func _process(delta):
 			c_check = false
 	else:
 		c_delay = 0
-	if(check1):
+	if(check1): # Move button
 		var p = button.position
 		button.position = Vector2(p.x + speed * delta * dir.x, p.y - speed * delta * dir.y)
+		key.rotate(PI/180 * speed / 40)
+		shadow_movement(button.position, key.rotation)
 	if(m_check):
 		time_stored += delta
 	else:
@@ -43,12 +49,16 @@ func _process(delta):
 		else:
 			time_stored -= delta / 2
 	slider.value = time_stored
+	
+	# Checks
 	if(time_stored > 3 and !check1):
 		check1 = true
 		speed /= 2
+		shadow1.show()
 	if(time_stored > 10 and !check2):
 		speed *= 2
 		check2 = true
+		shadow2.show()
 	if(time_stored > 18 and !check3):
 		randomize()
 		var x = randi_range(0,860)
@@ -58,7 +68,8 @@ func _process(delta):
 		dir.x *= -1
 		dir.y *= -1
 		check3 = true
-	if(time_stored >= 20 or (OS.is_debug_build() and time_stored >= 1)):
+		shadow3.show()
+	if(time_stored >= 20):
 		on_unlock.emit()
 		speed = 0
 		hide()
@@ -81,6 +92,20 @@ func change_dir():
 			dir.y *= -1
 	if(button.position.x > 380 or button.position.x < -510):
 			dir.x *= -1
+
+func shadow_movement(pos, rot):
+	for x in 2:
+		await get_tree().process_frame
+	shadow1.position = pos
+	shadow1.rotation = rot
+	for x in 2:
+		await get_tree().process_frame
+	shadow2.position = pos
+	shadow2.rotation = rot
+	for x in 1:
+		await get_tree().process_frame
+	shadow3.position = pos
+	shadow3.rotation = rot
 
 func _on_area_2d_area_exited(area):
 	if(area == button):
