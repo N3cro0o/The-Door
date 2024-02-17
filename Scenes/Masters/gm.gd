@@ -9,6 +9,8 @@ static var instance : GM
 @onready var cam = $Camera2D
 @onready var time_start := Time.get_time_dict_from_system()
 @onready var music_player = $AudioStreamPlayer
+@onready var main_menu := $Camera2D/MainMenu
+@onready var lockpick := $Camera2D/Lockpick
 
 # Methods
 func _ready():
@@ -17,7 +19,7 @@ func _ready():
 
 func window_shower(id:int):
 	if id == 0:
-		$Camera2D/Lockpick.show()
+		lockpick.show()
 	else:
 		var x = locks[id - 1]
 		x.show()
@@ -60,3 +62,9 @@ func _on_music_finished():
 	music_player.stream = preload("res://Sounds/Musik/Chopin_loop.mp3")
 	print("Musik loop")
 	music_player.play()
+
+func close_main_menu():
+	main_menu.hide()
+
+func close_game():
+	get_tree().quit()

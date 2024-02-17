@@ -78,8 +78,9 @@ offset_top = 30.0
 offset_right = 415.0
 offset_bottom = 50.0
 theme = ExtResource("3_bq6s2")
-min_value = -70.0
-max_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="Label2" type="Label" parent="Control/MarginContainer/HBoxContainer/Sliders"]
 layout_mode = 2
@@ -92,6 +93,10 @@ offset_top = 30.0
 offset_right = 415.0
 offset_bottom = 50.0
 theme = ExtResource("3_bq6s2")
+min_value = 0.75
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="SamplePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3a8i0")

@@ -4,6 +4,7 @@ extends Node2D
 @export var speed := 50.0
 @export var slider_gradient := GradientTexture1D
 # Variables
+@onready var speed_base = speed
 @onready var button = $Button
 @onready var key := $Button/Main
 @onready var shadow1 := $Shadow1

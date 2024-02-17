@@ -24,10 +24,10 @@ func _on_quit():
 	end_game.emit()
 
 func _on_sound_value_changed(value):
-	AudioServer.set_bus_volume_db(master_bus, value)
+	AudioServer.set_bus_volume_db(master_bus, linear_to_db(value))
 
 func _on_sound_drag_ended(value_changed):
 	player.play()
 
 func _on_mr_w(value):
-	pass # Replace with function body.
+	GM.instance.lockpick.speed = GM.instance.lockpick.speed_base * value
