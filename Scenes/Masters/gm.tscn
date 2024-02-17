@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8ndg556mf17"]
+[gd_scene load_steps=9 format=3 uid="uid://c8ndg556mf17"]
 
 [ext_resource type="Script" path="res://Scenes/Masters/gm.gd" id="1_5yojn"]
 [ext_resource type="PackedScene" uid="uid://babt23gkc0yru" path="res://Scenes/Door/door_main.tscn" id="1_rowav"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://8ea04wqbgv5l" path="res://Scenes/Minigames/papa_gmae.tscn" id="4_k1yop"]
 [ext_resource type="PackedScene" uid="uid://ylmm0b41yw1" path="res://Scenes/Minigames/space!!!!.tscn" id="6_0nt2r"]
 [ext_resource type="PackedScene" uid="uid://0u62fwnh04oi" path="res://Scenes/Minigames/clicker.tscn" id="7_wlfuj"]
+[ext_resource type="AudioStream" uid="uid://dq2or2p305ybi" path="res://Sounds/Musik/Chopin_start.mp3" id="8_lb4pi"]
 
 [node name="GM" type="Node2D" node_paths=PackedStringArray("locks")]
 script = ExtResource("1_5yojn")
@@ -38,6 +39,13 @@ title = "Lock_3"
 visible = false
 scene = ExtResource("7_wlfuj")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_lb4pi")
+volume_db = -30.0
+pitch_scale = 0.85
+autoplay = true
+bus = &"Music"
+
 [connection signal="activate_lock" from="Camera2D/DoorMain" to="." method="window_shower"]
 [connection signal="all_done" from="Camera2D/DoorMain" to="." method="finish_time"]
 [connection signal="on_unlock" from="Camera2D/Lockpick" to="Camera2D/DoorMain" method="phase2"]
@@ -47,3 +55,4 @@ scene = ExtResource("7_wlfuj")
 [connection signal="on_unlock" from="Windows/Lock2" to="." method="window_unlock" binds= [2]]
 [connection signal="focus_entered" from="Windows/Lock3" to="." method="_on_lock_3_focus_entered"]
 [connection signal="on_unlock" from="Windows/Lock3" to="." method="window_unlock" binds= [3]]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_music_finished"]
