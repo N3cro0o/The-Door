@@ -38,35 +38,6 @@ title = "Lock_3"
 visible = false
 scene = ExtResource("7_wlfuj")
 
-[node name="Control" type="Control" parent="."]
-custom_minimum_size = Vector2(1280, 720)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
-
-[node name="Label" type="Label" parent="Control/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 8
-horizontal_alignment = 2
-vertical_alignment = 1
-
 [connection signal="activate_lock" from="Camera2D/DoorMain" to="." method="window_shower"]
 [connection signal="all_done" from="Camera2D/DoorMain" to="." method="finish_time"]
 [connection signal="on_unlock" from="Camera2D/Lockpick" to="Camera2D/DoorMain" method="phase2"]

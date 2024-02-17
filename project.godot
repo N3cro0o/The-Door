@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="The_gate"
+config/name="The Door in my old Home"
+config/description="You find and old and dusty door after returning to your parents home. It seems like nobody but you can see it so you decide to open it and check what is inside
+
+- Brackeys Jam 2024.1 submission"
+config/version="1.0"
 run/main_scene="res://Scenes/Masters/gm.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [display]
 

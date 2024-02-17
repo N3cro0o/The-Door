@@ -42,6 +42,7 @@ var num_check = 0:
 @onready var bttn2 := $Buttons/Button2
 @onready var bttn3 := $Buttons/Button3
 @onready var blackboard := $Control/MarginContainer/Label
+@onready var audio_player = $AudioStreamPlayer
 
 # Signals
 ## Signal used to show windows, 'locks'.
@@ -52,6 +53,8 @@ signal all_done()
 func all_check_checker(): # The stupidest name I have come up ever
 	if check1 and check2 and check3:
 		all_done.emit()
+	else:
+		audio_player.play()
 
 func _ready():
 	instance = self
@@ -61,10 +64,13 @@ func _ready():
 
 func phase2():
 	sprite2d.texture = sprites[0]
+	var t := "It seems there's more locks and you need to open them differently than the last one."
+	write_on_blackboard(t)
 	bttn0.hide()
 	bttn1.show()
 	bttn2.show()
 	bttn3.show()
+	audio_player.play()
 
 func window_shower(id : int):
 	activate_lock.emit(id)
