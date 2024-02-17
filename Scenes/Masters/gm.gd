@@ -8,7 +8,7 @@ static var instance : GM
 @onready var door = $Camera2D/DoorMain
 @onready var cam = $Camera2D
 @onready var time_start := Time.get_time_dict_from_system()
-@onready var t_text := $Control/MarginContainer/Label
+@onready var music_player = $AudioStreamPlayer
 
 # Methods
 func _ready():
@@ -45,13 +45,18 @@ func finish_time():
 		m = "0" + str(m)
 	if s < 10:
 		s = "0" + str(s)
-	t_text.text = "%s:%s:%s" % [h,m,s]
+	door.write_on_blackboard("Your time:\n%s:%s:%s" % [h,m,s])
 
 func _on_lock_1_focus_entered():
 	door.write_on_blackboard("Find the code to open this lock.\nHints can be found anywhere\n\n\n... or you can just brute force it. There's only 10000 possible passwords!")
 
 func _on_lock_2_focus_entered():
-	door.write_on_blackboard("Stranded in space, you have to unlock the tablet to open the lock.\n\nBut after the ship crashed you can't find a way to open it here")
+	door.write_on_blackboard("Stranded in space, you have to unlock the tablet to open the lock.\n\nBut after the ship crashed you can't find a way to open it here\n\nTo move click in the blue area")
 
 func _on_lock_3_focus_entered():
-	door.write_on_blackboard("One of the deepest parts of the security system and it's a clicker. \n\n You know what to do, don't you?")
+	door.write_on_blackboard("One of the deepest parts of the security system and it's a clicker.\nYou need to embrace the available data types to get the pick.\n\n You know what to do, don't you?")
+
+func _on_music_finished():
+	music_player.stream = preload("res://Sounds/Musik/Chopin_loop.mp3")
+	print("Musik loop")
+	music_player.play()

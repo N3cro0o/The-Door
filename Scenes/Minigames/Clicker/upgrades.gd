@@ -6,6 +6,7 @@ const label := "%s\nCost: %s inputs"
 const debug := "debug_id"
 @onready var tooltip := $Tooltip
 @onready var timer := $Timer
+@onready var audio_player = $AudioStreamPlayer
 var buttons : Array[Button]
 var buttons_data:
 	set(bttn):
@@ -36,6 +37,7 @@ func _process(delta):
 	tooltip.position = get_global_mouse_position() + Vector2(25 + get_parent().position.x, 25 + get_parent().position.y)
 
 func show_tooltip(text):
+	audio_player.play()
 	tooltip.text.text = text
 	timer.start(.8)
 

@@ -6,6 +6,8 @@ extends Control
 @onready var label = $MarginContainer/VBoxContainer/Label
 @onready var timer := $Timer
 @onready var image := $TextureRect
+@onready var audio_player = $AudioStreamPlayer
+
 # Signals
 signal on_opening_lock
 # Methods
@@ -26,6 +28,9 @@ func set_text(s:String = ""):
 	label.text += s
 	if(label.text == password):
 		on_opening_lock.emit()
+	elif label.text.length() == password.length():
+		audio_player.play()
+		label.text = ""
 
 func image_shower():
 	var r = 240

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://8ea04wqbgv5l"]
+[gd_scene load_steps=5 format=3 uid="uid://8ea04wqbgv5l"]
 
 [ext_resource type="Script" path="res://Scenes/Minigames/papa_logic.gd" id="1_khfeu"]
 [ext_resource type="Texture2D" uid="uid://dxv1g2rlhbj4q" path="res://Sprites/Meme/jp2.jpg" id="2_l5vcn"]
+[ext_resource type="AudioStream" uid="uid://b0hsqjfhkroxu" path="res://Sounds/SFX/buzzer.mp3" id="3_beylx"]
 
 [sub_resource type="SystemFont" id="SystemFont_pwupx"]
 font_names = PackedStringArray("Comic Sans MS")
@@ -117,6 +118,11 @@ layout_mode = 2
 text = "9"
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_beylx")
+volume_db = -20.0
+bus = &"SFX"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/123/Button" to="." method="button_logic" binds= [1]]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/123/Button2" to="." method="button_logic" binds= [2]]
