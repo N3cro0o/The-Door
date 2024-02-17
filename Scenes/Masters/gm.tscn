@@ -43,7 +43,6 @@ scene = ExtResource("7_wlfuj")
 stream = ExtResource("8_lb4pi")
 volume_db = -30.0
 pitch_scale = 0.85
-autoplay = true
 bus = &"Music"
 
 [connection signal="activate_lock" from="Camera2D/DoorMain" to="." method="window_shower"]

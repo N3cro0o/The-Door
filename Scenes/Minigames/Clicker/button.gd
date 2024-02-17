@@ -3,6 +3,7 @@ extends Control
 # Exported variables
 
 # Variables
+@onready var audio_player = $AudioStreamPlayer
 var cost := 0.0
 var parent
 var dpc := 1
@@ -25,3 +26,4 @@ func _process(delta):
 
 func _on_button_pressed():
 	cost -= dpc
+	audio_player.play()

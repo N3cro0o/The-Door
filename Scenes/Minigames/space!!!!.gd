@@ -20,6 +20,7 @@ func start():
 
 func exit():
 	mc.velocity = Vector2.ZERO
+	mc.audio_player.stop()
 
 func on_mc_move():
 	if(DoorLogic.instance != null and DoorLogic.instance.check1):

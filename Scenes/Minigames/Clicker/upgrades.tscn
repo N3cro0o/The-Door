@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://iudxyqdikmfq"]
+[gd_scene load_steps=4 format=3 uid="uid://iudxyqdikmfq"]
 
 [ext_resource type="Script" path="res://Scenes/Minigames/Clicker/upgrades.gd" id="1_bxtfn"]
 [ext_resource type="PackedScene" uid="uid://7ja0yc77bve5" path="res://Scenes/Minigames/Clicker/tooltip.tscn" id="2_qp8sx"]
+[ext_resource type="AudioStream" uid="uid://rieowqsa4to3" path="res://Sounds/SFX/cmd_button.mp3" id="3_isf5b"]
 
 [node name="UpgradeControl" type="Control"]
 layout_mode = 3
@@ -46,5 +47,9 @@ theme_override_constants/separation = 10
 visible = false
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_isf5b")
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -11,6 +11,7 @@ extends Node2D
 @onready var shadow3 := $Shadow3
 @onready var box = $Area2D
 @onready var slider = $VSlider
+@onready var audio_bounce = $AudioBoince
 var check1 := false
 var check2 := false
 var check3 := false
@@ -92,6 +93,7 @@ func change_dir():
 			dir.y *= -1
 	if(button.position.x > 380 or button.position.x < -510):
 			dir.x *= -1
+	audio_bounce.play()
 
 func shadow_movement(pos, rot):
 	for x in 2:
