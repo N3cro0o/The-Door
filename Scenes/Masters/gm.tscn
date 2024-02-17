@@ -50,6 +50,7 @@ bus = &"Music"
 
 [connection signal="activate_lock" from="Camera2D/DoorMain" to="." method="window_shower"]
 [connection signal="all_done" from="Camera2D/DoorMain" to="." method="finish_time"]
+[connection signal="open_menu" from="Camera2D/DoorMain" to="." method="_on_door_main_open_menu"]
 [connection signal="on_unlock" from="Camera2D/Lockpick" to="Camera2D/DoorMain" method="phase2"]
 [connection signal="end_game" from="Camera2D/MainMenu" to="." method="close_game"]
 [connection signal="end_menu" from="Camera2D/MainMenu" to="." method="close_main_menu"]

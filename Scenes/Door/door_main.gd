@@ -43,10 +43,12 @@ var num_check = 0:
 @onready var bttn3 := $Buttons/Button3
 @onready var blackboard := $Control/MarginContainer/Label
 @onready var audio_player = $AudioStreamPlayer
+@onready var main_menu_button := $MMButton
 
 # Signals
 ## Signal used to show windows, 'locks'.
 signal activate_lock(id:int)
+signal open_menu
 signal all_done()
 
 # Methods
@@ -61,15 +63,17 @@ func _ready():
 	bttn1.hide()
 	bttn2.hide()
 	bttn3.hide()
+	main_menu_button.hide()
 
 func phase2():
 	sprite2d.texture = sprites[0]
-	var t := "It seems there's more locks and you need to open them differently than the last one."
+	var t := "It seems there're more locks and to open them you have to do something different"
 	write_on_blackboard(t)
 	bttn0.hide()
 	bttn1.show()
 	bttn2.show()
 	bttn3.show()
+	main_menu_button.show()
 	audio_player.play()
 
 func window_shower(id : int):
@@ -77,3 +81,9 @@ func window_shower(id : int):
 
 func write_on_blackboard(text):
 	blackboard.text = text
+
+func _on_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			open_menu.emit()
+	

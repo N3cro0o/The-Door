@@ -10,7 +10,7 @@
 script = ExtResource("2_grgn1")
 index = 0
 name = "picklock"
-description = "Used to break the lock"
+description = "Used to break the lock."
 cost = 100000
 lock = true
 jp2 = false

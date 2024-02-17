@@ -47,7 +47,7 @@ func finish_time():
 		m = "0" + str(m)
 	if s < 10:
 		s = "0" + str(s)
-	door.write_on_blackboard("Your time:\n%s:%s:%s" % [h,m,s])
+	door.write_on_blackboard("Congrats! You have awoken your shy Necro-developer brother!\nYou should feel bad now.\n\nYour time:\n%s:%s:%s" % [h,m,s])
 
 func _on_lock_1_focus_entered():
 	door.write_on_blackboard("Find the code to open this lock.\nHints can be found anywhere\n\n\n... or you can just brute force it. There's only 10000 possible passwords!")
@@ -68,3 +68,6 @@ func close_main_menu():
 
 func close_game():
 	get_tree().quit()
+
+func _on_door_main_open_menu():
+	main_menu.show()
