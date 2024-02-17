@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8ndg556mf17"]
+[gd_scene load_steps=10 format=3 uid="uid://c8ndg556mf17"]
 
 [ext_resource type="Script" path="res://Scenes/Masters/gm.gd" id="1_5yojn"]
 [ext_resource type="PackedScene" uid="uid://babt23gkc0yru" path="res://Scenes/Door/door_main.tscn" id="1_rowav"]
 [ext_resource type="PackedScene" uid="uid://dbb4ualvtff2q" path="res://Scenes/Lock/lock_1.tscn" id="2_8mo8n"]
 [ext_resource type="PackedScene" uid="uid://b6idqkaxi3haq" path="res://Scenes/Minigames/picking_lock.tscn" id="3_6r71s"]
+[ext_resource type="PackedScene" uid="uid://dcjke7amk3or0" path="res://Scenes/Masters/main_menu.tscn" id="4_53wyy"]
 [ext_resource type="PackedScene" uid="uid://8ea04wqbgv5l" path="res://Scenes/Minigames/papa_gmae.tscn" id="4_k1yop"]
 [ext_resource type="PackedScene" uid="uid://ylmm0b41yw1" path="res://Scenes/Minigames/space!!!!.tscn" id="6_0nt2r"]
 [ext_resource type="PackedScene" uid="uid://0u62fwnh04oi" path="res://Scenes/Minigames/clicker.tscn" id="7_wlfuj"]
@@ -20,6 +21,8 @@ locks = [NodePath("Windows/Lock1"), NodePath("Windows/Lock2"), NodePath("Windows
 [node name="Lockpick" parent="Camera2D" instance=ExtResource("3_6r71s")]
 visible = false
 speed = 200.0
+
+[node name="MainMenu" parent="Camera2D" instance=ExtResource("4_53wyy")]
 
 [node name="Windows" type="Node" parent="."]
 

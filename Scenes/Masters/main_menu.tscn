@@ -1,0 +1,103 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcjke7amk3or0"]
+
+[ext_resource type="Texture2D" uid="uid://dovyjg2xjq80b" path="res://Sprites/menu_book.png" id="1_a7j65"]
+[ext_resource type="Script" path="res://Scenes/Masters/main_menu.gd" id="2_1ledo"]
+[ext_resource type="Theme" uid="uid://cct0h47xho7w6" path="res://Scenes/Masters/main_menu.tres" id="3_bq6s2"]
+[ext_resource type="AudioStream" uid="uid://dhpdq5pfvtge3" path="res://Sounds/SFX/key_bounce.mp3" id="4_3a8i0"]
+
+[node name="MainMenu" type="Sprite2D"]
+texture = ExtResource("1_a7j65")
+script = ExtResource("2_1ledo")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.484
+anchor_top = 0.5
+anchor_right = 0.484
+anchor_bottom = 0.5
+offset_left = -1071.52
+offset_top = -662.0
+offset_right = -167.52
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="Buttons" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="Continue" type="Button" parent="Control/MarginContainer/HBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("3_bq6s2")
+text = "Put down the notebook"
+alignment = 0
+
+[node name="Quit" type="Button" parent="Control/MarginContainer/HBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("3_bq6s2")
+text = "Walk Away"
+alignment = 0
+
+[node name="Sliders" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 90
+
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Sliders"]
+layout_mode = 2
+theme = ExtResource("3_bq6s2")
+text = "Sounds:"
+
+[node name="MasterS" type="HSlider" parent="Control/MarginContainer/HBoxContainer/Sliders/Label"]
+layout_mode = 2
+offset_top = 30.0
+offset_right = 415.0
+offset_bottom = 50.0
+theme = ExtResource("3_bq6s2")
+min_value = -70.0
+max_value = 0.0
+
+[node name="Label2" type="Label" parent="Control/MarginContainer/HBoxContainer/Sliders"]
+layout_mode = 2
+theme = ExtResource("3_bq6s2")
+text = "Mr. W. value:"
+
+[node name="MrW" type="HSlider" parent="Control/MarginContainer/HBoxContainer/Sliders/Label2"]
+layout_mode = 2
+offset_top = 30.0
+offset_right = 415.0
+offset_bottom = 50.0
+theme = ExtResource("3_bq6s2")
+
+[node name="SamplePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3a8i0")
+
+[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/Buttons/Continue" to="." method="_on_continue"]
+[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/Buttons/Quit" to="." method="_on_quit"]
+[connection signal="drag_ended" from="Control/MarginContainer/HBoxContainer/Sliders/Label/MasterS" to="." method="_on_sound_drag_ended"]
+[connection signal="value_changed" from="Control/MarginContainer/HBoxContainer/Sliders/Label/MasterS" to="." method="_on_sound_value_changed"]
+[connection signal="value_changed" from="Control/MarginContainer/HBoxContainer/Sliders/Label2/MrW" to="." method="_on_mr_w"]
