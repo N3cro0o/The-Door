@@ -67,7 +67,7 @@ func _ready():
 
 func phase2():
 	sprite2d.texture = sprites[0]
-	var t := "It seems there're more locks and to open them you have to do something different"
+	var t := "It seems there's more locks to open. To do this, you have to do something different"
 	write_on_blackboard(t)
 	bttn0.hide()
 	bttn1.show()

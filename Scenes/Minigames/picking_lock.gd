@@ -31,16 +31,23 @@ func _ready():
 	randomize_movement()
 
 func _process(delta):
+	# Mouse position check
+	var p = button.position
+	var r = 35
+	if (p - get_local_mouse_position()).length() <= r and visible:
+		m_check = true
+	else:
+		m_check = false
+	# Out of bounds logic
 	if c_check:
 		c_delay += delta
 		if(c_delay > .15):
 			print("Sus move")
-			change_dir()
+			change_dir(false)
 			c_check = false
 	else:
 		c_delay = 0
 	if(check1): # Move button
-		var p = button.position
 		button.position = Vector2(p.x + speed * delta * dir.x, p.y - speed * delta * dir.y)
 		key.rotate(PI/180 * speed / 40)
 		shadow_movement(button.position, key.rotation)
@@ -89,12 +96,13 @@ func randomize_movement():
 	else:
 		dir = Vector2(1,-1)
 
-func change_dir():
+func change_dir(play:bool):
 	if(abs(button.position.y) > 290):
 			dir.y *= -1
 	if(button.position.x > 380 or button.position.x < -510):
 			dir.x *= -1
-	audio_bounce.play()
+	if play:
+		audio_bounce.play()
 
 func shadow_movement(pos, rot):
 	for x in 2:
@@ -113,11 +121,9 @@ func shadow_movement(pos, rot):
 func _on_area_2d_area_exited(area):
 	if(area == button):
 		c_check = true
-		change_dir()
+		change_dir(true)
 
 func _on_area_2d_area_entered(area):
 	if(area == button):
 		c_check = false
 
-func mouse_check_inverter():
-	m_check = !m_check

@@ -49,8 +49,17 @@ theme_override_constants/separation = 70
 [node name="Buttons" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
 theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_bq6s2")
+theme_override_colors/font_color = Color(0.866667, 0.811765, 0.568627, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 49
+text = "Door in my old
+Home"
 
 [node name="Continue" type="Button" parent="Control/MarginContainer/HBoxContainer/Buttons"]
 layout_mode = 2
@@ -63,7 +72,7 @@ alignment = 0
 [node name="Quit" type="Button" parent="Control/MarginContainer/HBoxContainer/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 4
+size_flags_vertical = 10
 theme = ExtResource("3_bq6s2")
 text = "Walk Away"
 alignment = 0

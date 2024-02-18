@@ -19,9 +19,11 @@ signal end_game
 
 func _on_continue():
 	end_menu.emit()
+	GM.instance.write_data()
 
 func _on_quit():
 	end_game.emit()
+	GM.instance.write_data()
 
 func _on_sound_value_changed(value):
 	AudioServer.set_bus_volume_db(master_bus, linear_to_db(value))

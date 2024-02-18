@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://babt23gkc0yru"]
+[gd_scene load_steps=13 format=3 uid="uid://babt23gkc0yru"]
 
 [ext_resource type="Script" path="res://Scenes/Door/door_main.gd" id="1_8jcdo"]
 [ext_resource type="Texture2D" uid="uid://cw2bosj0kc31u" path="res://Sprites/Door/godot_door0.png" id="2_nb3kr"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dahbd5r3donhh" path="res://Sprites/Door/godot_door4.png" id="5_sa785"]
 [ext_resource type="Texture2D" uid="uid://dja5lj1qbdmpu" path="res://Sprites/Door/godot_door5.png" id="6_aby56"]
 [ext_resource type="Texture2D" uid="uid://bm1h65ucaj2dt" path="res://Sprites/Door/godot_doorF.png" id="7_dgvte"]
+[ext_resource type="Theme" uid="uid://cct0h47xho7w6" path="res://Scenes/Masters/main_menu.tres" id="9_2st3q"]
 [ext_resource type="AudioStream" uid="uid://c0p0d3777din4" path="res://Sounds/SFX/Lock.mp3" id="9_lmgxp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4w4e1"]
@@ -95,6 +96,8 @@ theme_override_constants/margin_bottom = 3
 custom_minimum_size = Vector2(230, 280)
 layout_mode = 2
 size_flags_vertical = 0
+theme = ExtResource("9_2st3q")
+theme_override_font_sizes/font_size = 16
 autowrap_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

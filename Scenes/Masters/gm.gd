@@ -11,11 +11,27 @@ static var instance : GM
 @onready var music_player = $AudioStreamPlayer
 @onready var main_menu := $Camera2D/MainMenu
 @onready var lockpick := $Camera2D/Lockpick
-
+var save_data : SaveData
 # Methods
 func _ready():
+	if SaveData.check_if_save_exists():
+		await load_data()
+	else:
+		save_data = SaveData.new()
 	print(time_start)
 	instance = self
+
+func load_data():
+	save_data = SaveData.load_save_data()
+	print(save_data)
+	#AudioServer.set_bus_volume_db(main_menu.master_bus, save_data.volume)
+	#lockpick.speed = lockpick.speed_base * save_data.mr_w_slider
+	main_menu.master_sound_slider.value = db_to_linear(save_data.volume)
+
+func write_data():
+	save_data.volume = AudioServer.get_bus_volume_db(0)
+	save_data.mr_w_slider = lockpick.speed / lockpick.speed_base
+	save_data.write_save_data()
 
 func window_shower(id:int):
 	if id == 0:

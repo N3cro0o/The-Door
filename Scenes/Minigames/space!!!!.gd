@@ -17,10 +17,12 @@ func start():
 		parent.cam.enabled = false
 		window_movement()
 	finish.get_child(0).set_deferred("disabled", true)
+	mc.move_ready = true
 
 func exit():
 	mc.velocity = Vector2.ZERO
 	mc.audio_player.stop()
+	mc.move_ready = false
 
 func on_mc_move():
 	if(DoorLogic.instance != null and DoorLogic.instance.check1):
