@@ -19,6 +19,7 @@ signal end_game
 
 func _on_continue():
 	end_menu.emit()
+	player.play()
 	GM.instance.write_data()
 
 func _on_quit():
